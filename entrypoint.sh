@@ -27,7 +27,7 @@ force_without_changes_pre=${FORCE_WITHOUT_CHANGES:-false}
 tag_message=${TAG_MESSAGE:-""}
 
 # since https://github.blog/2022-04-12-git-security-vulnerability-announced/ runner uses?
-git config --global --add safe.directory /github/workspace
+git config --global --add safe.directory "$(dirname "${GITHUB_WORKSPACE}")"
 
 cd "${GITHUB_WORKSPACE}/${source}" || exit 1
 
